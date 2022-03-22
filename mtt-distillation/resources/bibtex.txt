@@ -1,7 +1,7 @@
 @inproceedings{
 cazenavette2022distillation,
 title={Dataset Distillation by Matching Training Trajectories},
-author={George Cazenavette and Tongzhou Wang and Antonio Torralba and Alexei Efros and Jun-Yan Zhu},
+author={George Cazenavette and Tongzhou Wang and Antonio Torralba and Alexei A. Efros and Jun-Yan Zhu},
 booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
 year={2022}
 }
