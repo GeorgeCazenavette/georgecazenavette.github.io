@@ -1,4 +1,4 @@
-<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script type="text/javascript">google.load("jquery", "1.3.2");</script>
 
 <style type="text/css">
@@ -171,343 +171,389 @@
     margin: 0 auto;
     text-align: left;
 }
+
 </style>
 
 <html>
 <head>
-	<title>Dataset Distillation by Matching Training Trajectories</title>
-	<meta property="og:image" content="resources/teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
-	<meta property="og:title" content="Dataset Distillation by Matching Training Trajectories" />
-	<meta property="og:description" content="Dataset Distillation by Matching Training Trajectories" />
+    <title>Dataset Distillation by Matching Training Trajectories</title>
+    <meta property="og:image" content="resources/teaser.png"/>
+    <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+    <meta property="og:title" content="Dataset Distillation by Matching Training Trajectories"/>
+    <meta property="og:description" content="Dataset Distillation by Matching Training Trajectories"/>
 
-	<!-- Get from Google Analytics -->
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src=""></script> 
-	<script>
+    <!-- Get from Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src=""></script>
+    <script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
 
 		gtag('config', 'UA-75863369-6');
-	</script>
+
+    </script>
 </head>
 
 <body>
-	<br>
-	<center>
-		<span style="font-size:36px">Dataset Distillation by Matching Training Trajectories</span>
-		<table align=center width=600px>
-			<table align=center>
-				<tr>
-					<td align=center>
-						<center>
-							<span style="font-size:24px"><a href="https://georgecazenavette.github.io">George Cazenavette</a> <sup>1</sup></span>
-						</center>
-					</td>
-					<td width="36" />
-					<td align=center>
-						<center>
-							<span style="font-size:24px"><a href="https://ssnl.github.io/">Tongzhou Wang</a> <sup>2</sup></span>
-						</center>
-					</td>
-					<td width="36" />
-					<td align=center>
-						<center>
-							<span style="font-size:24px"><a href="https://groups.csail.mit.edu/vision/torralbalab/">Antonio Torralba</a> <sup>2</sup></span>
-						</center>
-					</td>
+<br>
+<center>
+    <span style="font-size:36px">Dataset Distillation by Matching Training Trajectories</span>
+    <table align=center width=600px>
+        <table align=center>
+            <tr>
+                <td align=center>
+                    <center>
+                        <span style="font-size:24px"><a
+                                href="https://georgecazenavette.github.io">George Cazenavette</a> <sup>1</sup></span>
+                    </center>
+                </td>
+                <td width="36"/>
+                <td align=center>
+                    <center>
+                        <span style="font-size:24px"><a
+                                href="https://ssnl.github.io/">Tongzhou Wang</a> <sup>2</sup></span>
+                    </center>
+                </td>
+                <td width="36"/>
+                <td align=center>
+                    <center>
+                        <span style="font-size:24px"><a href="https://groups.csail.mit.edu/vision/torralbalab/">Antonio Torralba</a> <sup>2</sup></span>
+                    </center>
+                </td>
 
-				</tr>
-			</table>
-			<table>
-				<tr>
-					<td align=center>
-						<center>
-							<span style="font-size:24px"><a href="http://people.eecs.berkeley.edu/~efros/">Alexei A. Efros</a> <sup>3</sup></span>
-						</center>
-					</td>
-					<td width="36" />
-					<td align=center>
-						<center>
-							<span style="font-size:24px"><a href="https://www.cs.cmu.edu/~junyanz/">Jun-Yan Zhu</a> <sup>1</sup></span>
-						</center>
-					</td>
-				</tr>
-			</table>
-			<table>
-				<tr>
-					<td align=center>
-						<center>
-							<span style="font-size:18px"><sup>1</sup> Carnegie Mellon University</span>
-						</center>
-					</td>
-					<td width="36" />
-					<td align=center>
-						<center>
-							<span style="font-size:18px"><sup>2</sup> Massachusetts Institute of Technology</span>
-						</center>
-					</td>
-					<td width="36" />
-					<td align=center>
-						<center>
-							<span style="font-size:18px"><sup>3</sup> UC Berkeley</span>
-						</center>
-					</td>
-				</tr>
-			</table>
-			<br>
-			<center>
-							<span style="font-size:24px">CVPR 2022</span>
-			</center>
-			<br>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td align=center>
+                    <center>
+                        <span style="font-size:24px"><a
+                                href="http://people.eecs.berkeley.edu/~efros/">Alexei A. Efros</a> <sup>3</sup></span>
+                    </center>
+                </td>
+                <td width="36"/>
+                <td align=center>
+                    <center>
+                        <span style="font-size:24px"><a
+                                href="https://www.cs.cmu.edu/~junyanz/">Jun-Yan Zhu</a> <sup>1</sup></span>
+                    </center>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td align=center>
+                    <center>
+                        <span style="font-size:18px"><sup>1</sup> Carnegie Mellon University</span>
+                    </center>
+                </td>
+                <td width="36"/>
+                <td align=center>
+                    <center>
+                        <span style="font-size:18px"><sup>2</sup> Massachusetts Institute of Technology</span>
+                    </center>
+                </td>
+                <td width="36"/>
+                <td align=center>
+                    <center>
+                        <span style="font-size:18px"><sup>3</sup> UC Berkeley</span>
+                    </center>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <center>
+            <span style="font-size:24px">CVPR 2022</span>
+        </center>
+        <br>
 
-			<table align=center width=250px>
-				<tr>
-					<td align=center width=120px>
-						<center>
-							<span style="font-size:24px"><a href='https://arxiv.org/abs/2203.11932'>[Paper]</a></span>
-						</center>
-					</td>
-					<td align=center width=120px>
-						<center>
-							<span style="font-size:24px"><a href='https://github.com/GeorgeCazenavette/mtt-distillation'>[GitHub]</a></span><br>
-						</center>
-					</td>
-				</tr>
-			</table>
-		</table>
-	</center>
-	<center>
-		<table align=center width=1000px>
-			<tr>
-				<td width=260px>
-					<center>
-						<img class="round" src="./resources/teaser.png" style="width:1000px"/>
-					</center>
-				</td>
-			</tr>
-		</table>
-	</center>
-	<hr>
-	<center><h1>Abstract</h1></center>
-	<p>Dataset distillation is the task of synthesizing a small dataset such that a model trained on the synthetic set will match the test accuracy of the model trained on the full dataset.
-	In this paper, we propose a new formulation that optimizes our distilled data to guide networks to a similar state as those trained on real data across many training steps.
-   Given a network, we train it for several iterations on our distilled data and optimize the distilled data with respect to the distance between the synthetically trained parameters and the parameters trained on real data. To efficiently obtain the initial and target network parameters for large-scale datasets, we pre-compute and store training trajectories of expert networks trained on the real dataset.
-   Our method handily outperforms existing methods and also allows us to distill higher-resolution visual data.</p>
-	<hr>
-	<center><h1>Problem</h1></center>
-	<table align=center width=200px>
-		<tr>
-			<td align=center width=200px>
-					<img class="round" style="width:600" src="./resources/problem.png" />
-			</td>
-		</tr>
-	</table>
-	<br>
-	The task of "Dataset Distillation" is to synthesize a low-support set of artificial data such that a model trained on this synthetic data alone will have similar test performance as a model trained on the full real dataset.
-	<br>
-	<table align=center width=400px>
-		<tr>
-			<td align=center>
-					<img src='resources/CIFAR-10, 1 img_class.png' style="width:500">
-			</td>
-			<td align=center>
-					<img src='resources/CIFAR-100, 1 img_class.png' style="width:500">
-			</td>
-		</tr>
-	</table>
-	<br>
-	<center>Our method significantly outperforms all previous methods on CIFAR and allows us to extend to higher-resolution datasets as well.</center>
-	<hr>
-	<center><h1>Method</h1></center>
-	<table align=center width=400px>
-		<tr>
-			<td align=center width=400px>
-				<center>
-					<img class="round" style="height:600" src="./resources/method.gif"/>
-				</center>
-			</td>
-		</tr>
-	</table>
-	<br>
-
-	Our method distills the synthetic dataset by <i>directly</i> optimizing the fake images to induce similar network training dynamics as the full, real dataset.
-		We train "student" networks for many iterations on the synthetic data, measure the error in parameter space between the "student" and "expert" networks, and back-propagate through all the student network updates to optimize the synthetic pixels.
-	<hr>
-
-	<h1 align="center">Distillation Animation</h1>
-	<table align=center width=400px>
-
-		<tr>
-<!--			<td align=center width=400px>-->
-<!--				<center>-->
-
-<!--					<video width="800" height="800" loop autoplay muted>-->
-<!--					  <source src="./resources/animation.mp4" type="video/mp4">-->
-<!--&lt;!&ndash;					  <source src="http://tortuga.andrew.cmu.edu:8007/test1.mp4" type="video/ogg">&ndash;&gt;-->
-<!--						Your browser does not support the video tag.-->
-<!--					</video>-->
-
-<!--				</center>-->
-<!--			</td>-->
-			<td align=center width=400px>
-				<center>
-
-					<img src="resources/animation.gif" width="600">
-
-				</center>
-			</td>
-		</tr>
-		<tr>
-			<td align=center width=400px>
-				<center>
-					<br>
-					<p>First 1000 distillation iterations of CIFAR-100, 1 image per class.</p>
-				</center>
-			</td>
-		</tr>
-	</table>
-	<hr>
-	<center><h1>Distilled Image Browsing</h1></center>
-    <table align=center width=1000>
-
+        <table align=center width=250px>
+            <tr>
+                <td align=center width=120px>
+                    <center>
+                        <span style="font-size:24px"><a href='https://arxiv.org/abs/2203.11932'>[Paper]</a></span>
+                    </center>
+                </td>
+                <td align=center width=120px>
+                    <center>
+                        <span style="font-size:24px"><a href='https://github.com/GeorgeCazenavette/mtt-distillation'>[GitHub]</a></span><br>
+                    </center>
+                </td>
+            </tr>
+        </table>
+    </table>
+</center>
+<center>
+    <table align=center width=1000px>
         <tr>
-            <td><h2>32x32 Images</h2></td>
+            <td width=260px>
+                <center>
+                    <img class="round" src="./resources/teaser.png" style="width:1000px"/>
+                </center>
+            </td>
         </tr>
-		<tr>
-			<td><span style="font-size:24px">CIFAR-10: <a href='./images/cifar10'>1</a>, <a href='./images/cifar10_10'>10</a>, <a href='./images/cifar10_50'>50</a> images/class</span></td>
-			<td><span style="font-size:24px">CIFAR-100: <a href='./images/cifar100'>1</a>, <a href='./images/cifar100_10'>10</a>, <a href='./images/cifar100_50'>50</a> images/class</span></td>
-		</tr>
-		<tr>
-			<td><span style="font-size:24px">CIFAR-10 ZCA: <a href='./images/cifar10_zca'>1</a>, <a href='./images/cifar10_zca_10'>10</a>, <a href='./images/cifar10_zca_50'>50</a> images/class</span></td>
-			<td><span style="font-size:24px">CIFAR-100 ZCA: <a href='./images/cifar100_zca'>1</a>, <a href='./images/cifar100_zca_10'>10</a>, <a href='./images/cifar100_zca_50'>50</a> images/class</span></td>
-		</tr>
-		<tr>
-            <td><br><h2>64x64 Images</h2></td>
-        </tr>
-		<tr>
-			<td><span style="font-size:24px">Tiny ImageNet: <a href='./images/tiny'>1</a>, <a href='./images/tiny_10'>10</a>, <a href='./images/tiny_50'>50</a> images/class</span></td>
-		</tr>
-		<tr>
-            <td><br><h2>128x128 Images</h2></td>
-        </tr>
-		<tr>
-			<td><span style="font-size:24px">ImageSquawk: <a href='./images/imagesquawk'>1</a>, <a href='./images/imagesquawk_10'>10</a> images/class</span></td>
-			<td><span style="font-size:24px">ImageFruit: <a href='./images/imagefruit'>1</a>, <a href='./images/imagefruit_10'>10</a> images/class</span></td>
-		</tr>
-		<tr>
-			<td><span style="font-size:24px">ImageWoof: <a href='./images/imagewoof'>1</a>, <a href='./images/imagewoof_10'>10</a> images/class</span></td>
-			<td><span style="font-size:24px">ImageMeow: <a href='./images/imagemeow'>1</a>, <a href='./images/imagemeow_10'>10</a> images/class</span></td>
-		</tr>
-		<tr>
-			<td><span style="font-size:24px">ImageNette: <a href='./images/imagenette'>1</a>, <a href='./images/imagenette_10'>10</a> images/class</span></td>
-			<td><span style="font-size:24px">ImageYellow: <a href='./images/imageyellow'>1</a>, <a href='./images/imageyellow_10'>10</a> images/class</span></td>
-		</tr>
+    </table>
+</center>
+<hr>
+<center><h1>Abstract</h1></center>
+<p>Dataset distillation is the task of synthesizing a small dataset such that a model trained on the synthetic set will
+    match the test accuracy of the model trained on the full dataset.
+    In this paper, we propose a new formulation that optimizes our distilled data to guide networks to a similar state
+    as those trained on real data across many training steps.
+    Given a network, we train it for several iterations on our distilled data and optimize the distilled data with
+    respect to the distance between the synthetically trained parameters and the parameters trained on real data. To
+    efficiently obtain the initial and target network parameters for large-scale datasets, we pre-compute and store
+    training trajectories of expert networks trained on the real dataset.
+    Our method handily outperforms existing methods and also allows us to distill higher-resolution visual data.</p>
+<hr>
+<center><h1>Problem</h1></center>
+<table align=center width=200px>
+    <tr>
+        <td align=center width=200px>
+            <img class="round" style="width:600" src="./resources/problem.png"/>
+        </td>
+    </tr>
+</table>
+<br>
+The task of "Dataset Distillation" is to synthesize a low-support set of artificial data such that a model trained on
+this synthetic data alone will have similar test performance as a model trained on the full real dataset.
+<br>
+<table align=center width=400px>
+    <tr>
+        <td align=center>
+            <img src='resources/CIFAR-10, 1 img_class.png' style="width:500">
+        </td>
+        <td align=center>
+            <img src='resources/CIFAR-100, 1 img_class.png' style="width:500">
+        </td>
+    </tr>
+</table>
+<br>
+<center>Our method significantly outperforms all previous methods on CIFAR and allows us to extend to higher-resolution
+    datasets as well.
+</center>
+<hr>
+<center><h1>Method</h1></center>
+<table align=center width=400px>
+    <tr>
+        <td align=center width=400px>
+            <center>
+                <img class="round" style="height:600" src="./resources/method.gif"/>
+            </center>
+        </td>
+    </tr>
+</table>
+<br>
 
-	</table>
-	<hr>
+Our method distills the synthetic dataset by <i>directly</i> optimizing the fake images to induce similar network
+training dynamics as the full, real dataset.
+We train "student" networks for many iterations on the synthetic data, measure the error in parameter space between the
+"student" and "expert" networks, and back-propagate through all the student network updates to optimize the synthetic
+pixels.
+<hr>
 
-	<center><h1>Dataset Downloads</h1></center>
-	<center><span style="font-size:24px">You can find torch tensors containing all of our synthetic datasets <a href="tensors">here</a>.</span></center>
-	<br>
-	<hr>
-	<table align=center>
-		<center><h1>Paper</h1></center>
-		<tr>
-			<td><a href=""><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></a></td>
-			<td><span style="font-size:14pt">G. Cazenavette, T. Wang, A. Torralba, A.A. Efros, J.Y. Zhu<br>
+<h1 align="center">Distillation Animation</h1>
+<table align=center width=400px>
+
+    <tr>
+        <td align=center width=400px>
+            <center>
+
+                <img src="resources/animation.gif" width="600">
+
+            </center>
+        </td>
+    </tr>
+    <tr>
+        <td align=center width=400px>
+            <center>
+                <br>
+                <p style="font-size:18px">First 1000 distillation iterations of CIFAR-100, 1 image per class.</p>
+            </center>
+        </td>
+    </tr>
+</table>
+<hr>
+<h1 align="center">Distilled ImageNet</h1>
+<table align="center">
+    <tr>
+        <td align="center">
+            <img src="resources/imagenet/imagefruit.png" width="500">
+        </td>
+        <td align="center">
+            <img src="resources/imagenet/imagesquawk.png" width="500">
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <img src="resources/imagenet/imagewoof.png" width="500">
+        </td>
+        <td align="center">
+            <img src="resources/imagenet/imagemeow.png" width="500">
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <img src="resources/imagenet/imagenette.png" width="500">
+        </td>
+        <td align="center">
+            <img src="resources/imagenet/imageblub.png" width="500">
+        </td>
+    </tr>
+    <tr>
+        <td align="center" colspan="2"><br><span style="font-size:18px"> For the first time, our method distills higher-resolution ImageNet classes.</span></td>
+    </tr>
+</table>
+<hr>
+<center><h1>Distilled Image Browsing</h1></center>
+<center><span style="font-size:28px">Explore all of our Distilled Images here</span></center>
+<table align=center width=1000>
+
+    <tr>
+        <td><h3>32x32 Images</h3></td>
+    </tr>
+    <tr>
+        <td><span style="font-size:24px">CIFAR-10: <a href='./images/cifar10'>1</a>, <a
+                href='./images/cifar10_10'>10</a>, <a href='./images/cifar10_50'>50</a> images/class</span></td>
+        <td><span style="font-size:24px">CIFAR-100: <a href='./images/cifar100'>1</a>, <a
+                href='./images/cifar100_10'>10</a>, <a href='./images/cifar100_50'>50</a> images/class</span></td>
+    </tr>
+    <tr>
+        <td><span style="font-size:24px">CIFAR-10 ZCA: <a href='./images/cifar10_zca'>1</a>, <a
+                href='./images/cifar10_zca_10'>10</a>, <a href='./images/cifar10_zca_50'>50</a> images/class</span></td>
+        <td><span style="font-size:24px">CIFAR-100 ZCA: <a href='./images/cifar100_zca'>1</a>, <a
+                href='./images/cifar100_zca_10'>10</a>, <a href='./images/cifar100_zca_50'>50</a> images/class</span>
+        </td>
+    </tr>
+    <tr>
+        <td><br>
+            <h2>64x64 Images</h2></td>
+    </tr>
+    <tr>
+        <td><span style="font-size:24px">Tiny ImageNet: <a href='./images/tiny'>1</a>, <a href='./images/tiny_10'>10</a>, <a
+                href='./images/tiny_50'>50</a> images/class</span></td>
+    </tr>
+    <tr>
+        <td><br>
+            <h2>128x128 Images</h2></td>
+    </tr>
+    <tr>
+        <td><span style="font-size:24px">ImageSquawk: <a href='./images/imagesquawk'>1</a>, <a
+                href='./images/imagesquawk_10'>10</a> images/class</span></td>
+        <td><span style="font-size:24px">ImageFruit: <a href='./images/imagefruit'>1</a>, <a
+                href='./images/imagefruit_10'>10</a> images/class</span></td>
+    </tr>
+    <tr>
+        <td><span style="font-size:24px">ImageWoof: <a href='./images/imagewoof'>1</a>, <a href='./images/imagewoof_10'>10</a> images/class</span>
+        </td>
+        <td><span style="font-size:24px">ImageMeow: <a href='./images/imagemeow'>1</a>, <a href='./images/imagemeow_10'>10</a> images/class</span>
+        </td>
+    </tr>
+    <tr>
+        <td><span style="font-size:24px">ImageNette: <a href='./images/imagenette'>1</a>, <a
+                href='./images/imagenette_10'>10</a> images/class</span></td>
+        <td><span style="font-size:24px">ImageYellow: <a href='./images/imageyellow'>1</a>, <a
+                href='./images/imageyellow_10'>10</a> images/class</span></td>
+    </tr>
+
+</table>
+<hr>
+
+<center><h1>Dataset Downloads</h1></center>
+<center><span style="font-size:24px">You can find torch tensors containing all of our synthetic datasets <a
+        href="tensors">here</a>.</span></center>
+<br>
+<hr>
+<table align=center>
+    <center><h1>Paper</h1></center>
+    <tr>
+        <td><a href=""><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></a></td>
+        <td><span style="font-size:14pt">G. Cazenavette, T. Wang, A. Torralba, A.A. Efros, J.Y. Zhu<br>
 				<b>Dataset Distillation by Matching Training Trajectories</b><br>
 				CVPR, 2022.<br></span>
-			</td>
-		</tr>
-	</table>
-	<br>
+        </td>
+    </tr>
+</table>
+<br>
 
-	<table align=center width=600px>
-		<tr>
-			<td><span style="font-size:14pt"><center>
+<table align=center width=600px>
+    <tr>
+        <td><span style="font-size:14pt"><center>
 				<a href="./resources/bibtex.txt">[Bibtex]</a>
 			</center></span></td>
-		</tr>
-	</table>
+    </tr>
+</table>
 
-	<hr>
-	<br>
+<hr>
+<br>
 
-	<table align="center">
-		<tr><h1>Wearable ImageNet: Synthesizing Tileable Textures via Dataset Distillation</h1></tr>
-		<p align="center"><img src='resources/texture_teaser.png' width=1000></p>
-		Instead of treating our synthetic data as individual images, we can instead encourage every random crop (with circular padding) on a larger canvas of pixels to induce a good training trajectory.
-			This results in class-based textures that are continuous around their edges.
+<table align="center">
+    <tr><h1>Wearable ImageNet: Synthesizing Tileable Textures via Dataset Distillation</h1></tr>
+    <p align="center"><img src='resources/texture_teaser.png' width=1000></p>
+    Instead of treating our synthetic data as individual images, we can instead encourage every random crop (with
+    circular padding) on a larger canvas of pixels to induce a good training trajectory.
+    This results in class-based textures that are continuous around their edges.
 
-<p align="center"><img src='resources/penguins1_horizontal.png' width=1000></p>
+    <p align="center"><img src='resources/penguins1_horizontal.png' width=1000></p>
 
 
-<p align="center">Given these tilable textures, we can apply them to areas that require such properties, such as clothing patterns.</p>
-		<table align=center>
-			<tr>
-				<td>
-					<img src="resources/flamingo_shirt.jpg" width="250">
-				</td>
-				<td>
-					<img src="resources/penguin_shirt.jpg" width="250">
-				</td>
-				<td>
-					<img src="resources/eagle_jacket.jpg" width="250">
-				</td>
-				<td>
-					<img src="resources/parrot_dress.jpg" width="250">
-				</td>
-			</tr>
-		</table>
-		<br>
-		<center>Visualizations made using <a href="https://tri3d.in/">FAB3D</a></center>
-<!--		<center><img src="resources/flamingo_shirt.jpg" width="400"><img src="resources/penguin_shirt.jpg" width="400"></center>-->
-<!--		<center><img src="resources/parrot_dress.jpg" width="400"><img src="resources/eagle_jacket.jpg" width="400"></center>-->
-	</table>
-	<hr>
-	<center><h1>Distilled Texture Browsing</h1></center>
-    <table align=center width=1000>
-		<tr>
-			<td align="center"><span style="font-size:24px">ImageSquawk: <a href='./textures/ImageSquawk'>1 Tile</a>, <a href='./textures/ImageSquawk_3x3'>3x3 Tiles</a></span></td>
-			<td align="center"><span style="font-size:24px">ImageFruit: <a href='./textures/ImageFruit'>1 Tile</a>, <a href='./textures/ImageFruit_3x3'>3x3 Tiles</a></span></td>
-		</tr>
-	</table>
-	<br>
-<!--	<hr>-->
-<!--	<h1>Links to Extra Features</h1>-->
-<!--	<ul style="font-size:24pt">-->
-<!--		<li>-->
-<!--			<a href="browsing.html">Image Browsing</a>-->
-<!--		</li>-->
-<!--		<li>-->
-<!--			<a href="textures.html">Texture Browsing</a>-->
-<!--		</li>-->
-<!--		<li>-->
-<!--			<a href="./tensors">Dataset Files</a>-->
-<!--		</li>-->
-<!--		<li>-->
-<!--			<a href="figures.html">Interactive Figures</a>-->
-<!--		</li>-->
-<!--	</ul>-->
+    <p align="center">Given these tilable textures, we can apply them to areas that require such properties, such as
+        clothing patterns.</p>
+    <table align=center>
+        <tr>
+            <td>
+                <img src="resources/flamingo_shirt.jpg" width="250">
+            </td>
+            <td>
+                <img src="resources/penguin_shirt.jpg" width="250">
+            </td>
+            <td>
+                <img src="resources/eagle_jacket.jpg" width="250">
+            </td>
+            <td>
+                <img src="resources/parrot_dress.jpg" width="250">
+            </td>
+        </tr>
+    </table>
+    <br>
+    <center>Visualizations made using <a href="https://tri3d.in/">FAB3D</a></center>
+</table>
+<hr>
+<center><h1>Distilled Texture Browsing</h1></center>
+<table align=center width=1000>
+    <tr>
+        <td align="center"><span style="font-size:24px">ImageSquawk: <a href='./textures/ImageSquawk'>1 Tile</a>, <a
+                href='./textures/ImageSquawk_3x3'>3x3 Tiles</a></span></td>
+        <td align="center"><span style="font-size:24px">ImageFruit: <a href='./textures/ImageFruit'>1 Tile</a>, <a
+                href='./textures/ImageFruit_3x3'>3x3 Tiles</a></span></td>
+    </tr>
+</table>
+<br>
+<hr>
+<br>
 
-	<hr>
-	<br>
+<table align=center width=1000px>
+    <tr>
+        <td width=400px>
+            <left>
+                <center><h1>Acknowledgements</h1></center>
+                We would like to thank Alexander Li, Assaf Shocher, and Gokul Swamy for proofreading our paper. Kangle
+                Deng, Ruihan Gao, Nupur Kumari, Muyang Li, Garuav Parmar, Chonghyuk Song, Sheng-Yu Wang, and Bingliang
+                Zhang as well as Simon Lucey's Vision Group at the University of Adelaide also provided valuable
+                feedback.
 
-	<table align=center width=1000px>
-		<tr>
-			<td width=400px>
-				<left>
-					<center><h1>Acknowledgements</h1></center>
-					We would like to thank Alexander Li, Assaf Shocher, and Gokul Swamy for proofreading our paper.  Kangle Deng, Ruihan Gao, Nupur Kumari, Muyang Li, Garuav Parmar, Chonghyuk Song, Sheng-Yu Wang, and Bingliang Zhang as well as Simon Lucey's Vision Group at the University of Adelaide also provided valuable feedback.
+                This work is supported, in part, by the NSF Graduate Research Fellowship under Grant No. DGE1745016, and
+                a grant from from SAP.
 
-					This work is supported, in part, by the NSF Graduate Research Fellowship under Grant No. DGE1745016, and a grant from  from SAP.
-
-					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
-				</left>
-			</td>
-		</tr>
-	</table>
+                This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a
+                    href="http://richzhang.github.io/">Richard Zhang</a> for a <a
+                    href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a
+                    href="https://github.com/richzhang/webpage-template">here</a>.
+            </left>
+        </td>
+    </tr>
+</table>
 <br>
 </body>
 </html>
