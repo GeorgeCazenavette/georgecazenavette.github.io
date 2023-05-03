@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Generalizing Dataset Distillation via Deep Generative Prior">
+  <meta name="keywords" content="Dataset, Distillation, Synthetic, GAN">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GLaD</title>
+  <link rel="icon" type="image/x-icon" href="static/resources/emoji/smile.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar is-white" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link" >
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://www.tongzhouwang.info/dataset_distillation">
+            Dataset Distillation
+          </a>
+          <a class="navbar-item" href="https://georgecazenavette.github.io/mtt-distillation">
+            Matching Training Trajectories
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GLaD <img style="vertical-align:middle; margin-bottom: 10px;" src="static/resources/emoji/smile.png" width="50">:</h1>
+          <h1 class="title is-2 publication-title">Generalizing Dataset Distillation<br />via<br />Deep Generative Prior</h1>
+          <h1 class="title is-3 publication-title">CVPR 2023</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://georgecazenavette.github.io/">George Cazenavette</a><sup><img src="static/resources/emoji/cowboy.png" width="20"></sup>,</span>
+            <span class="author-block">
+              <a href="https://www.tongzhouwang.info/">Tongzhou Wang</a><sup><img src="static/resources/emoji/cowboy.png" width="20"></sup>,</span>
+            <span class="author-block">
+              <a href="https://groups.csail.mit.edu/vision/torralbalab/">Antonio Torralba</a><sup><img src="static/resources/emoji/cowboy.png" width="20"></sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://people.eecs.berkeley.edu/~efros/">Alexei A. Efros</a><sup><img src="static/resources/emoji/sunglasses.png" width="20"></sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.cs.cmu.edu/~junyanz/">Jun-Yan Zhu</a><sup><img src="static/resources/emoji/disguised.png" width="20"></sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup><img src="static/resources/emoji/cowboy.png" width="20"></sup>Massachusetts Institute of Technology,</span>
+            <span class="author-block"><sup><img src="static/resources/emoji/sunglasses.png" width="20"></sup>UC Berkeley,</span>
+            <span class="author-block"><sup><img src="static/resources/emoji/disguised.png" width="20"></sup>Carnegie Mellon University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="index.html"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fas fa-file-pdf"></i>-->
+<!--                  </span>-->
+<!--                  <span>Paper</span>-->
+<!--                </a>-->
+<!--              </span>-->
+              <span class="link-block">
+                <a href="index.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="index.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/georgecazenavette/glad"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="https://github.com/google/nerfies/releases/tag/0.1"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="far fa-images"></i>-->
+<!--                  </span>-->
+<!--                  <span>Data</span>-->
+<!--                  </a>-->
+<!--              </span>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/resources/method.svg" title="Generative Latent Distillation">
+      <h2 class="subtitle has-text-justified" style="margin-bottom: 10px;">
+        <br>
+        Dataset Distillation concerns the synthesis of small synthetic datasets that still lead to models with good test performance.
+      </h2>
+      <h2 class="subtitle has-text-justified">
+          Generative Latent Distillation (GLaD) distills images into the latent space of a generative model rather than directly into pixels.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-2 has-text-centered">Distilled Images</h2>
+      <h2 class="subtitle has-text-justified">
+        Images distilled into latent space (top) rather than pixel space (bottom) are far less noisy with much clearer visual structure.
+        Visualized below are results using the Trajectory Matching, Gradient Matching, and Distribution Matching methods distilled into latent space (ours) versus pixel space.
+      </h2>
+    </div>
+  </div>
+<!--</section>-->
+
+<!--<section class="hero is-small">-->
+  <div class="hero-body  has-text-centered">
+    <h2 class="title is-3">Trajectory Matching [<a href="https://arxiv.org/abs/2203.11932" style="color: #A31F34">1</a>]</h2>
+    <div class="is-size-4">
+        Generative Latent Distillation (Ours)
+      </div>
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel"  data-slides-to-show="2" >
+        <div class="item item-steve">
+          <img src="static/resources/2x5/mtt/gan/birds.png" title="ImageNet-Birds">
+          <div class="is-size-5">
+            ImageNet-Birds
+          </div>
+          <img src="static/resources/2x5/mtt/pixels/birds.png" title="ImageNet-Birds">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/mtt/gan/fruits.png" title="ImageNet-Fruits">
+          <div class="is-size-5">
+            ImageNet-Fruits
+          </div>
+          <img src="static/resources/2x5/mtt/pixels/fruits.png" title="ImageNet-Fruits">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/mtt/gan/cats.png" title="ImageNet-Cats">
+          <div class="is-size-5">
+            ImageNet-Cats
+          </div>
+          <img src="static/resources/2x5/mtt/pixels/cats.png" title="ImageNet-Cats">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/mtt/gan/imagewoof.png" title="ImageWoof">
+          <div class="is-size-5">
+            ImageWoof
+          </div>
+          <img src="static/resources/2x5/mtt/pixels/imagewoof.png" title="ImageWoof">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/mtt/gan/imagenette.png" title="Imagenette">
+          <div class="is-size-5">
+            ImageNette
+          </div>
+          <img src="static/resources/2x5/mtt/pixels/imagenette.png" title="Imagenette">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/mtt/gan/alpha.png" title="ImageNet-A">
+          <div class="is-size-5">
+            ImageNet-A
+          </div>
+          <img src="static/resources/2x5/mtt/pixels/alpha.png" title="ImageNet-A">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/mtt/gan/beta.png" title="ImageNet-B">
+          <div class="is-size-5">
+            ImageNet-B
+          </div>
+          <img src="static/resources/2x5/mtt/pixels/beta.png" title="ImageNet-B">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/mtt/gan/gamma.png" title="ImageNet-C">
+          <div class="is-size-5">
+            ImageNet-C
+          </div>
+          <img src="static/resources/2x5/mtt/pixels/gamma.png" title="ImageNet-C">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/mtt/gan/delta.png" title="ImageNet-D">
+          <div class="is-size-5">
+            ImageNet-D
+          </div>
+          <img src="static/resources/2x5/mtt/pixels/delta.png" title="ImageNet-D">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/mtt/gan/epsilon.png" title="ImageNet-E">
+          <div class="is-size-5">
+            ImageNet-E
+          </div>
+          <img src="static/resources/2x5/mtt/pixels/epsilon.png" title="ImageNet-E">
+        </div>
+      </div>
+      <div class="is-size-4">
+        Pixel Distillation
+      </div>
+    </div>
+  </div>
+<!--</section>-->
+
+<!--<section class="hero is-small">-->
+  <div class="hero-body  has-text-centered">
+    <h2 class="title is-3">Gradient Matching [<a href="https://arxiv.org/abs/2006.05929" style="color: #A31F34">2</a>]</h2>
+    <div class="is-size-4">
+        Generative Latent Distillation (Ours)
+      </div>
+    <div class="container">
+      <div class="carousel results-carousel"  data-slides-to-show="2">
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dc/gan/birds.png" title="ImageNet-Birds">
+          <div class="is-size-5">
+            ImageNet-Birds
+          </div>
+          <img src="static/resources/2x5/dc/pixels/birds.png" title="ImageNet-Birds">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dc/gan/fruits.png" title="ImageNet-Fruits">
+          <div class="is-size-5">
+            ImageNet-Fruits
+          </div>
+          <img src="static/resources/2x5/dc/pixels/fruits.png" title="ImageNet-Fruits">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dc/gan/cats.png" title="ImageNet-Cats">
+          <div class="is-size-5">
+            ImageNet-Cats
+          </div>
+          <img src="static/resources/2x5/dc/pixels/cats.png" title="ImageNet-Cats">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dc/gan/imagewoof.png" title="ImageWoof">
+          <div class="is-size-5">
+            ImageWoof
+          </div>
+          <img src="static/resources/2x5/dc/pixels/imagewoof.png" title="ImageWoof">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dc/gan/imagenette.png" title="Imagenette">
+          <div class="is-size-5">
+            ImageNette
+          </div>
+          <img src="static/resources/2x5/dc/pixels/imagenette.png" title="Imagenette">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dc/gan/alpha.png" title="ImageNet-A">
+          <div class="is-size-5">
+            ImageNet-A
+          </div>
+          <img src="static/resources/2x5/dc/pixels/alpha.png" title="ImageNet-A">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dc/gan/beta.png" title="ImageNet-B">
+          <div class="is-size-5">
+            ImageNet-B
+          </div>
+          <img src="static/resources/2x5/dc/pixels/beta.png" title="ImageNet-B">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dc/gan/gamma.png" title="ImageNet-C">
+          <div class="is-size-5">
+            ImageNet-C
+          </div>
+          <img src="static/resources/2x5/dc/pixels/gamma.png" title="ImageNet-C">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dc/gan/delta.png" title="ImageNet-D">
+          <div class="is-size-5">
+            ImageNet-D
+          </div>
+          <img src="static/resources/2x5/dc/pixels/delta.png" title="ImageNet-D">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dc/gan/epsilon.png" title="ImageNet-E">
+          <div class="is-size-5">
+            ImageNet-E
+          </div>
+          <img src="static/resources/2x5/dc/pixels/epsilon.png" title="ImageNet-E">
+        </div>
+      </div>
+      <div class="is-size-4">
+        Pixel Distillation
+      </div>
+    </div>
+  </div>
+<!--</section>-->
+
+<!--<section class="hero is-small">-->
+  <div class="hero-body  has-text-centered">
+    <h2 class="title is-3">Distribution Matching [<a href="https://arxiv.org/abs/2110.04181" style="color: #A31F34">3</a>]</h2>
+    <div class="is-size-4">
+        Generative Latent Distillation (Ours)
+      </div>
+    <div class="container">
+      <div class="carousel results-carousel" data-slides-to-show="2">
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dm/gan/birds.png" title="ImageNet-Birds">
+          <div class="is-size-5">
+            ImageNet-Birds
+          </div>
+          <img src="static/resources/2x5/dm/pixels/birds.png" title="ImageNet-Birds">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dm/gan/fruits.png" title="ImageNet-Fruits">
+          <div class="is-size-5">
+            ImageNet-Fruits
+          </div>
+          <img src="static/resources/2x5/dm/pixels/fruits.png" title="ImageNet-Fruits">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dm/gan/cats.png" title="ImageNet-Cats">
+          <div class="is-size-5">
+            ImageNet-Cats
+          </div>
+          <img src="static/resources/2x5/dm/pixels/cats.png" title="ImageNet-Cats">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dm/gan/imagewoof.png" title="ImageWoof">
+          <div class="is-size-5">
+            ImageWoof
+          </div>
+          <img src="static/resources/2x5/dm/pixels/imagewoof.png" title="ImageWoof">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dm/gan/imagenette.png" title="Imagenette">
+          <div class="is-size-5">
+            ImageNette
+          </div>
+          <img src="static/resources/2x5/dm/pixels/imagenette.png" title="Imagenette">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dm/gan/alpha.png" title="ImageNet-A">
+          <div class="is-size-5">
+            ImageNet-A
+          </div>
+          <img src="static/resources/2x5/dm/pixels/alpha.png" title="ImageNet-A">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dm/gan/beta.png" title="ImageNet-B">
+          <div class="is-size-5">
+            ImageNet-B
+          </div>
+          <img src="static/resources/2x5/dm/pixels/beta.png" title="ImageNet-B">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dm/gan/gamma.png" title="ImageNet-C">
+          <div class="is-size-5">
+            ImageNet-C
+          </div>
+          <img src="static/resources/2x5/dm/pixels/gamma.png" title="ImageNet-C">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dm/gan/delta.png" title="ImageNet-D">
+          <div class="is-size-5">
+            ImageNet-D
+          </div>
+          <img src="static/resources/2x5/dm/pixels/delta.png" title="ImageNet-D">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/2x5/dm/gan/epsilon.png" title="ImageNet-E">
+          <div class="is-size-5">
+            ImageNet-E
+          </div>
+          <img src="static/resources/2x5/dm/pixels/epsilon.png" title="ImageNet-E">
+        </div>
+      </div>
+      <div class="is-size-4">
+        Pixel Distillation
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-2 has-text-centered">Out of Distribution Generators</h2>
+      <h2 class="subtitle has-text-justified">
+        Our method is still effective using generators that have not been trained on the corresponding dataset. Visualized below are videos showing the process of distilling ImageNet subsets into generators trained on FFHQ, Pokémon, and nothing at all.
+      </h2>
+    </div>
+  </div>
+
+  <div class="hero-body  has-text-centered">
+    <div class="container">
+      <div class="carousel results-carousel"  data-slides-to-show="1" data-autoplay-speed="12000">
+        <div class="item item-chair-tp">
+          <div class="is-size-3">
+            FFHQ GAN
+          </div>
+          <video poster="" autoplay controls muted loop playsinline height="100%">
+            <source src="static/resources/videos/ffhq.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <div class="is-size-3">
+            Pokémon GAN
+          </div>
+          <video poster="" autoplay controls muted loop playsinline height="100%">
+            <source src="static/resources/videos/pokemon.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <div class="is-size-3">
+            Random GAN
+          </div>
+          <video poster="" autoplay controls muted loop playsinline height="100%">
+            <source src="static/resources/videos/random.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-2 has-text-centered">Extra-High Resolution</h2>
+      <h2 class="subtitle has-text-justified">
+        The failures of pixel distillation become even more apparent at extra-high resolutions. Attempting to distill into a high-resolution pixel space produces images almost completely full of high-frequency noise.
+      </h2>
+    </div>
+  </div>
+
+  <div class="hero-body  has-text-centered">
+    <div class="container">
+      <div class="carousel results-carousel"  data-slides-to-show="3" data>
+        <div class="item item-steve">
+          <img src="static/resources/512/images/gan/0_0.png" >
+          <div class="is-size-5">
+            Peacock
+          </div>
+          <img src="static/resources/512/images/pixel/0_0.png" >
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/512/images/gan/1_0.png" >
+          <div class="is-size-5">
+            Flamingo
+          </div>
+          <img src="static/resources/512/images/pixel/1_0.png" >
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/512/images/gan/2_0.png" >
+          <div class="is-size-5">
+            Macaw
+          </div>
+          <img src="static/resources/512/images/pixel/2_0.png">
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/512/images/gan/3_0.png">
+          <div class="is-size-5">
+            Pelican
+          </div>
+          <img src="static/resources/512/images/pixel/3_0.png" >
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/512/images/gan/4_0.png" >
+          <div class="is-size-5">
+            Penguin
+          </div>
+          <img src="static/resources/512/images/pixel/4_0.png" >
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/512/images/gan/5_0.png" >
+          <div class="is-size-5">
+            Eagle
+          </div>
+          <img src="static/resources/512/images/pixel/5_0.png" >
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/512/images/gan/6_0.png" >
+          <div class="is-size-5">
+            Toucan
+          </div>
+          <img src="static/resources/512/images/pixel/6_0.png" >
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/512/images/gan/7_0.png"  >
+          <div class="is-size-5">
+            Ostrich
+          </div>
+          <img src="static/resources/512/images/pixel/7_0.png" >
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/512/images/gan/8_0.png" >
+          <div class="is-size-5">
+            Black Swan
+          </div>
+          <img src="static/resources/512/images/pixel/8_0.png" >
+        </div>
+        <div class="item item-steve">
+          <img src="static/resources/512/images/gan/9_0.png" >
+          <div class="is-size-5">
+            Cockatoo
+          </div>
+          <img src="static/resources/512/images/pixel/9_0.png" >
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{cazenavette2023glad,
+  author    = {Cazenavette, George and Wang, Tongzhou and Torralba, Antonio and Efros, Alexei A. and Zhu, Jun-Yan},
+  title     = {Generalizing Dataset Distillation via Deep Generative Prior},
+  journal   = {CVPR},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section>
+
+<section class="section" >
+    <div class="container is-max-desktop content">
+      <div class="has-text-justified">
+        <h2 class="title is-5 has-text-justified">References</h2>
+        [<a href="https://arxiv.org/abs/2203.11932">1</a>] Cazenavette et al., Dataset Distillation by Matching Training Trajectories (CVPR 2022)<br />
+        [<a href="https://arxiv.org/abs/2006.05929">2</a>] Zhao et al., Dataset Condensation by Gradient Matching (ICLR 2021)<br />
+        [<a href="https://arxiv.org/abs/2110.04181">3</a>] Zhao and Bilen, Dataset Condensation by Distribution Matching (NeurIPS Workshop 2022)
+      </div>
+    </div>
+  </section>
+
+<footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              Website source based on <a href="https://github.com/nerfies/nerfies.github.io">this source code</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
